@@ -13,6 +13,7 @@ namespace ANZTest.Service
         private readonly IToyModel _toyModel;
         private readonly ITableModel _tableModel;
         private readonly IValidation _validation;
+        private bool _isInstanceCreated = false;
 
         public GameService(IToyModel toyModel, ITableModel tableModel, IValidation validation = null)
         {
@@ -53,21 +54,28 @@ namespace ANZTest.Service
                 {
                     var args1 = args[1].Split(',');
                     _toyModel.place(Convert.ToInt16(args1[0]), Convert.ToInt16(args1[1]), UtilityHelper.getFacingByString(args1[2].ToUpper()));
+                    _isInstanceCreated = true;
                 }
-                else if (action == Constants.Report)
+                else if (action == Constants.Report && _isInstanceCreated)
                 {
                     var result = _toyModel.report();
                     Console.WriteLine($"Output : {result?.XPosition},{result?.YPosition}, {result?.Face.ToString()}");
                 }
-                else if (action == Constants.Move)
+                else if (action == Constants.Move && _isInstanceCreated)
                 {
                     _toyModel.Move();
                 }
-                else if (action == Constants.Left)
+                else if (action == Constants.Left && _isInstanceCreated)
                 {
                     _toyModel.left();
                 }
-                else if (action == Constants.Right) { _toyModel.right(); }
+                else if (action == Constants.Right && _isInstanceCreated) {
+                    _toyModel.right();
+                }
+                else
+                {
+                    Console.WriteLine("Place a toy to begin this game...");
+                }
             }
             else
             {

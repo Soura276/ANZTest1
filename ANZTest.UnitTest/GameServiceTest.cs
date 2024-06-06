@@ -45,6 +45,11 @@ namespace ANZTest.UnitTest
         {
             // Arrange
             var input = "Move";
+            _tableMock.Setup(x => x.YMaxPosition).Returns(5);
+            _tableMock.Setup(x => x.XMaxPosition).Returns(5);
+            _tableMock.Setup(x => x.YMinPosition).Returns(0);
+            _tableMock.Setup(x => x.XMinPosition).Returns(0);
+            _gameService.ProcessInput("Place 1,2,north");
 
             // Act
             _gameService.ProcessInput(input);
@@ -58,6 +63,11 @@ namespace ANZTest.UnitTest
         {
             // Arrange
             var input = "left";
+            _tableMock.Setup(x => x.YMaxPosition).Returns(5);
+            _tableMock.Setup(x => x.XMaxPosition).Returns(5);
+            _tableMock.Setup(x => x.YMinPosition).Returns(0);
+            _tableMock.Setup(x => x.XMinPosition).Returns(0);
+            _gameService.ProcessInput("Place 1,2,north");
 
             // Act
             _gameService.ProcessInput(input);
@@ -71,6 +81,11 @@ namespace ANZTest.UnitTest
         {
             // Arrange
             var input = "right";
+            _tableMock.Setup(x => x.YMaxPosition).Returns(5);
+            _tableMock.Setup(x => x.XMaxPosition).Returns(5);
+            _tableMock.Setup(x => x.YMinPosition).Returns(0);
+            _tableMock.Setup(x => x.XMinPosition).Returns(0);
+            _gameService.ProcessInput("Place 1,2,north");
 
             // Act
             _gameService.ProcessInput(input);
@@ -85,6 +100,11 @@ namespace ANZTest.UnitTest
         {
             // Arrange
             var input = "report";
+            _tableMock.Setup(x => x.YMaxPosition).Returns(5);
+            _tableMock.Setup(x => x.XMaxPosition).Returns(5);
+            _tableMock.Setup(x => x.YMinPosition).Returns(0);
+            _tableMock.Setup(x => x.XMinPosition).Returns(0);
+            _gameService.ProcessInput("Place 1,2,north");
 
             // Act
             _gameService.ProcessInput(input);
