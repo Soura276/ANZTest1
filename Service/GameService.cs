@@ -57,7 +57,7 @@ namespace ANZTest.Service
                 else if (action == Constants.Report)
                 {
                     var result = _toyModel.report();
-                    Console.WriteLine($"Output : {result.XPosition},{result.YPosition}, {result.Face.ToString()}");
+                    Console.WriteLine($"Output : {result?.XPosition},{result?.YPosition}, {result?.Face.ToString()}");
                 }
                 else if (action == Constants.Move)
                 {
