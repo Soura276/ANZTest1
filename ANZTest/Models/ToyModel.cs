@@ -35,7 +35,16 @@ namespace ANZTest.Models
 
         public void place(int x, int y, Facing face)
         {
-            instance = new ToyModel(x, y, face);
+            if(instance == null)
+            {
+                instance = new ToyModel(x, y, face);
+            }
+            else
+            {
+                instance.XPosition = x;
+                instance.YPosition = y;
+                instance.Face = face;
+            }
         }
 
         public ToyModel report()
